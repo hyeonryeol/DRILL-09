@@ -46,7 +46,11 @@ face = 1  # 1: 오른쪽, -1: 왼쪽
 while running:
     clear_canvas()
     tuk_ground.draw(TUK_WIDTH // 2, TUK_HEIGHT // 2)
-    character.clip_draw(frame * 100, 300, 100, 100, x, y)
+    if dir_x != 0 or dir_y != 0:
+        action = 1 if face == 1 else 0
+    else:
+        action = 3
+    character.clip_draw(frame * 100, action * 100, 100, 100, x, y)
 
     update_canvas()
     handle_events()
