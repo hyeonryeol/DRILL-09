@@ -23,8 +23,12 @@ running = True
 x = 800 // 2
 frame = 0
 
-# fill here
+while running:
+    clear_canvas()
 
+    update_canvas()
+    handle_events()
+    delay(0.05)
 
 close_canvas()
 
