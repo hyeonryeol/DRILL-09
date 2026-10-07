@@ -3,6 +3,7 @@ from pico2d import *
 
 TUK_WIDTH, TUK_HEIGHT = 1280, 1024
 SPEED = 10
+HALF_W, HALF_H = 50, 50  # 소년 스프라이트 한 칸(100x100)의 절반
 open_canvas(TUK_WIDTH, TUK_HEIGHT)
 tuk_ground = load_image('TUK_GROUND.png')
 character = load_image('animation_sheet.png')
@@ -57,9 +58,9 @@ while running:
     if dir_x != 0:
         face = dir_x
     x += dir_x * SPEED
-    x = clamp(50, x, TUK_WIDTH - 50)
+    x = clamp(HALF_W, x, TUK_WIDTH - HALF_W)
     y += dir_y * SPEED
-    y = clamp(50, y, TUK_HEIGHT - 50)
+    y = clamp(HALF_H, y, TUK_HEIGHT - HALF_H)
     frame = (frame + 1) % 8
     delay(0.05)
 
