@@ -2,7 +2,8 @@ from pico2d import *
 
 
 TUK_WIDTH, TUK_HEIGHT = 1280, 1024
-SPEED = 10
+SPEED = 10  # 한 프레임에 이동하는 픽셀 수
+FRAME_DELAY = 0.05  # 프레임 간격(초), 8프레임 한 바퀴에 0.4초
 HALF_W, HALF_H = 50, 50  # 소년 스프라이트 한 칸(100x100)의 절반
 open_canvas(TUK_WIDTH, TUK_HEIGHT)
 tuk_ground = load_image('TUK_GROUND.png')
@@ -62,7 +63,7 @@ while running:
     y += dir_y * SPEED
     y = clamp(HALF_H, y, TUK_HEIGHT - HALF_H)
     frame = (frame + 1) % 8
-    delay(0.05)
+    delay(FRAME_DELAY)
 
 close_canvas()
 
