@@ -8,9 +8,7 @@ character = load_image('animation_sheet.png')
 
 
 def handle_events():
-    global running
-
-    # fill here
+    global running, dir_x, dir_y
 
     events = get_events()
     for event in events:
@@ -23,6 +21,7 @@ def handle_events():
 running = True
 x, y = TUK_WIDTH // 2, TUK_HEIGHT // 2
 frame = 0
+dir_x, dir_y = 0, 0
 
 while running:
     clear_canvas()
