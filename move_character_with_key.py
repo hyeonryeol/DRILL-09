@@ -59,6 +59,7 @@ while running:
     x += dir_x * SPEED
     x = clamp(50, x, TUK_WIDTH - 50)
     y += dir_y * SPEED
+    y = clamp(50, y, TUK_HEIGHT - 50)
     frame = (frame + 1) % 8
     delay(0.05)
 
