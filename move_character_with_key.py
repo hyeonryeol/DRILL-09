@@ -49,7 +49,7 @@ while running:
     if dir_x != 0 or dir_y != 0:
         action = 1 if face == 1 else 0
     else:
-        action = 3
+        action = 3 if face == 1 else 2
     character.clip_draw(frame * 100, action * 100, 100, 100, x, y)
 
     update_canvas()
