@@ -2,6 +2,7 @@ from pico2d import *
 
 
 TUK_WIDTH, TUK_HEIGHT = 1280, 1024
+SPEED = 10
 open_canvas(TUK_WIDTH, TUK_HEIGHT)
 tuk_ground = load_image('TUK_GROUND.png')
 character = load_image('animation_sheet.png')
@@ -30,6 +31,8 @@ while running:
 
     update_canvas()
     handle_events()
+    x += dir_x * SPEED
+    y += dir_y * SPEED
     frame = (frame + 1) % 8
     delay(0.05)
 
