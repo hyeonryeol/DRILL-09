@@ -57,6 +57,7 @@ while running:
     if dir_x != 0:
         face = dir_x
     x += dir_x * SPEED
+    x = clamp(50, x, TUK_WIDTH - 50)
     y += dir_y * SPEED
     frame = (frame + 1) % 8
     delay(0.05)
