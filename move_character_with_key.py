@@ -41,6 +41,7 @@ running = True
 x, y = TUK_WIDTH // 2, TUK_HEIGHT // 2
 frame = 0
 dir_x, dir_y = 0, 0
+face = 1  # 1: 오른쪽, -1: 왼쪽
 
 while running:
     clear_canvas()
@@ -49,6 +50,8 @@ while running:
 
     update_canvas()
     handle_events()
+    if dir_x != 0:
+        face = dir_x
     x += dir_x * SPEED
     y += dir_y * SPEED
     frame = (frame + 1) % 8
