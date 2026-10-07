@@ -48,6 +48,15 @@ def draw_boy():
     character.clip_draw(frame * 100, action * 100, 100, 100, x, y)
 
 
+def update_boy():
+    global x, y, face, frame
+    if dir_x != 0:  # 위아래로만 움직일 때는 기존 방향 유지
+        face = dir_x
+    x = clamp(HALF_W, x + dir_x * SPEED, TUK_WIDTH - HALF_W)
+    y = clamp(HALF_H, y + dir_y * SPEED, TUK_HEIGHT - HALF_H)
+    frame = (frame + 1) % 8
+
+
 running = True
 x, y = TUK_WIDTH // 2, TUK_HEIGHT // 2
 frame = 0
@@ -61,13 +70,7 @@ while running:
 
     update_canvas()
     handle_events()
-    if dir_x != 0:
-        face = dir_x
-    x += dir_x * SPEED
-    x = clamp(HALF_W, x, TUK_WIDTH - HALF_W)
-    y += dir_y * SPEED
-    y = clamp(HALF_H, y, TUK_HEIGHT - HALF_H)
-    frame = (frame + 1) % 8
+    update_boy()
     delay(FRAME_DELAY)
 
 close_canvas()
