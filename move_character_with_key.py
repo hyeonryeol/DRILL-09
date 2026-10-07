@@ -39,6 +39,15 @@ def handle_events():
                 dir_y += 1
 
 
+def draw_boy():
+    # 이동 중이면 달리기(1: 오른쪽, 0: 왼쪽), 정지면 IDLE(3: 오른쪽, 2: 왼쪽)
+    if dir_x != 0 or dir_y != 0:
+        action = 1 if face == 1 else 0
+    else:
+        action = 3 if face == 1 else 2
+    character.clip_draw(frame * 100, action * 100, 100, 100, x, y)
+
+
 running = True
 x, y = TUK_WIDTH // 2, TUK_HEIGHT // 2
 frame = 0
@@ -48,11 +57,7 @@ face = 1  # 1: 오른쪽, -1: 왼쪽
 while running:
     clear_canvas()
     tuk_ground.draw(TUK_WIDTH // 2, TUK_HEIGHT // 2)
-    if dir_x != 0 or dir_y != 0:
-        action = 1 if face == 1 else 0
-    else:
-        action = 3 if face == 1 else 2
-    character.clip_draw(frame * 100, action * 100, 100, 100, x, y)
+    draw_boy()
 
     update_canvas()
     handle_events()
